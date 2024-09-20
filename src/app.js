@@ -1,11 +1,9 @@
-import { read } from './readFn';
-import { json } from './jsonFn';
+import { GameSavingLoader } from './GameSavingLoader';
 
 (async () => {
    try {
-      const data = await read();
-      const value = await json(data);
-      return value;
+      const saving = await GameSavingLoader.load();
+      return saving;
    } catch (err) {
       console.log(err);
    }
